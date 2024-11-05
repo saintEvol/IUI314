@@ -316,6 +316,7 @@ function handleAdd() {
   modalFormItems.value = [...addFormItems.value, ...editFormItems.value]
   title.value = `${t('sys.add')}用户`
 }
+
 async function handleUpdate(row?: userInformation) {
   modalIcon.value = h(IconEdit)
   modalFormItems.value = [...editFormItems.value]
@@ -329,6 +330,7 @@ async function handleUpdate(row?: userInformation) {
   form.value.dept_ids = data.value?.dept_ids
   title.value = `${t('sys.update')}用户:${form.value?.user_name}`
 }
+
 async function submitForm() {
   if (form.value.id !== undefined) {
     const { execute, data } = usePut(ApiSysUser.edit, form)
@@ -348,6 +350,7 @@ async function submitForm() {
   open.value = false
   emits('getList')
 }
+
 // 选项初始化
 async function optionsInit() {
   const queryParams = {
